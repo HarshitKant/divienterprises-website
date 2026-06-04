@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Portfolio — DIVI Enterprises</title>
+<meta name="description" content="DIVI Enterprises — importer and distributor of diamond-tool consumables and high-performance steel wire ropes for mining, quarrying, stone processing, construction and material handling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0d0f;
+  --bg-alt:#111316;
+  --surface:#15171a;
+  --surface-2:#1c1e23;
+  --panel:#1a1c20;
+  --ink:#e8eaef;
+  --body:#9aa0a9;
+  --muted:#6f757e;
+  --line:rgba(255,255,255,.10);
+  --line-2:rgba(255,255,255,.20);
+  --accent:#d98a3e;
+  --accent-dark:#bf7129;
+  --accent-soft:rgba(217,138,62,.13);
+  --steel:#828a95;
+  --maxw:1340px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:radial-gradient(900px 520px at 50% -6%, rgba(217,138,62,.08), transparent 62%), linear-gradient(180deg,#0e0f13 0%, #0a0b0d 100%);
+  background-attachment:fixed;color:var(--body);font-family:'Sora',sans-serif;font-weight:400;
+  line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent-soft);color:var(--accent-dark)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,3.5vw,44px)}
+
+/* type */
+h1,h2,h3,h4,h5,h6{font-family:'Archivo',sans-serif;color:var(--ink);line-height:1.12;font-weight:700;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);display:inline-block}
+.lead{font-size:1.12rem;color:var(--body);max-width:62ch}
+.kicker{color:var(--accent)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(12,13,15,.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;
+  padding:14px max(20px, calc((100% - var(--maxw)) / 2))}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Archivo';font-weight:700;font-size:1.22rem;
+  letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.brand .mark{width:34px;height:34px;flex:none}
+.brand small{display:block;font-family:'Sora';font-weight:400;font-size:.5rem;letter-spacing:.3em;
+  color:var(--muted);margin-top:2px;text-transform:uppercase}
+nav.main{display:flex;align-items:center;gap:30px}
+nav.main a{font-size:.9rem;color:var(--body);font-weight:400;transition:color .2s}
+nav.main a:hover,nav.main a.active{color:var(--accent)}
+.nav-cta{padding:9px 18px !important;background:var(--accent);color:#0c0d0f !important;border-radius:4px;
+  font-size:.85rem !important;font-weight:500;transition:background .2s}
+.nav-cta:hover{background:var(--accent-dark);color:#0c0d0f !important}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink);transition:.25s}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:.92rem;font-weight:500;padding:13px 24px;
+  border-radius:4px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;border:1px solid transparent}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+.btn-primary{background:var(--accent);color:#0c0d0f}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* hero */
+.hero{padding:90px 0 92px;border-bottom:1px solid var(--line)}
+.hero .wrap{display:block}
+.hero-copy{max-width:880px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);margin:18px 0 0;letter-spacing:-.02em}
+.hero h1 .cu{color:var(--accent)}
+.hero h1 .out{display:block;color:var(--steel)}
+.hero .lead{margin:22px 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:36px;margin-top:40px;flex-wrap:wrap}
+.hstat .n{font-family:'Archivo';font-weight:700;font-size:2.15rem;color:var(--accent);line-height:1}
+.hstat .l{font-size:.78rem;color:var(--muted);margin-top:6px}
+.badge{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.04em;color:var(--body);
+  border:1px solid var(--line-2);background:var(--surface);padding:10px 16px;border-radius:4px;margin-top:28px}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.badge b{color:var(--ink);font-weight:600}
+.hero-visual{display:flex;justify-content:center}
+.rope-panel{width:100%;max-width:420px;background:linear-gradient(180deg,var(--surface-2),var(--surface));
+  border:1px solid var(--line);border-radius:12px;padding:40px 36px;text-align:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 30px 70px -34px rgba(217,138,62,.28)}
+.rope-panel svg{width:100%;height:auto}
+.rope-panel .cap{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:20px}
+
+/* sections */
+section{padding:84px 0}
+.bg-alt{background:var(--bg-alt)}
+.sec-head{max-width:720px;margin-bottom:46px}
+.sec-head h2{font-size:clamp(1.9rem,4vw,3rem);margin:14px 0 16px}
+
+/* verticals / pillars */
+.verticals{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:34px 32px;transition:border-color .2s}
+.pillar:hover{border-color:var(--line-2)}
+.pillar .num{font-size:.74rem;letter-spacing:.14em;color:var(--accent);font-weight:600}
+.pillar h3{font-size:1.45rem;margin:12px 0 12px}
+.pillar p{color:var(--body)}
+.pillar ul{list-style:none;margin:20px 0 0}
+.pillar li{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--body)}
+.pillar li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;flex:none}
+.pillar .plink{display:inline-flex;gap:8px;margin-top:24px;font-size:.88rem;font-weight:500;color:var(--accent)}
+.pillar .plink .arr{transition:transform .2s}.pillar:hover .plink .arr{transform:translateX(3px)}
+
+/* industries */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ind{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:30px 26px}
+.ind .ic{width:30px;height:30px;color:var(--accent);margin-bottom:16px}
+.ind h4{font-size:1.08rem;margin-bottom:6px}
+.ind p{font-size:.88rem;color:var(--muted)}
+
+/* split / why */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.why-card{display:flex;gap:18px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line)}
+.why-card:first-child{border-top:0;padding-top:0}
+.why-card .bignum{font-family:'Archivo';font-weight:700;font-size:1.6rem;color:var(--accent);line-height:1;flex:none}
+.why-card h4{font-size:1.08rem;margin-bottom:6px}
+.why-card p{font-size:.92rem;color:var(--body)}
+
+/* spec table */
+.spec-wrap{border:1px solid var(--line);border-radius:8px;overflow:hidden;overflow-x:auto;background:var(--surface)}
+table.spec{width:100%;border-collapse:collapse;font-size:.88rem;min-width:680px}
+table.spec th,table.spec td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+table.spec thead th{background:var(--bg-alt);font-weight:600;font-size:.78rem;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink);font-family:'Sora'}
+table.spec thead th:first-child{color:var(--accent)}
+table.spec tbody th{font-weight:500;color:var(--ink);font-size:.85rem;white-space:nowrap;font-family:'Sora'}
+table.spec tbody td{color:var(--body)}
+table.spec tbody tr:last-child th,table.spec tbody tr:last-child td{border-bottom:0}
+table.spec tbody tr:hover td,table.spec tbody tr:hover th{background:rgba(255,255,255,.04)}
+
+/* product blocks */
+.prod-block{border-top:1px solid var(--line);padding-top:40px;margin-top:48px}
+.prod-block:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.prod-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.prod-head .idx{color:var(--accent);font-size:.9rem;font-weight:600}
+.prod-head h3{font-size:1.5rem}
+.prod-desc{color:var(--body);max-width:74ch;margin-bottom:26px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px 22px;transition:border-color .2s}
+.pcard:hover{border-color:var(--accent)}
+.pcard h5{font-size:1rem;margin-bottom:6px;color:var(--ink)}
+.pcard p{font-size:.84rem;color:var(--muted)}
+.pcard .tag{display:inline-block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);padding:4px 9px;border-radius:3px;margin-top:13px;font-weight:500}
+.chip-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.chip{font-size:.82rem;color:var(--body);border:1px solid var(--line-2);background:var(--surface);
+  padding:8px 14px;border-radius:4px}
+
+/* page hero (inner pages) */
+.page-hero{padding:64px 0 56px;border-bottom:1px solid var(--line);background:var(--bg-alt)}
+.page-hero h1{font-size:clamp(2rem,4.4vw,3.2rem);margin:16px 0 14px}
+.page-hero .lead{font-size:1.08rem}
+.page-hero .crumb{font-size:.78rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.page-hero .crumb b{color:var(--accent);font-weight:500}
+
+/* about */
+.story p{font-size:1.05rem;color:var(--body);margin-bottom:20px;max-width:68ch}
+.story p strong{color:var(--ink);font-weight:600}
+.pedigree{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px;margin-top:8px}
+.ped{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px 22px}
+.ped .lbl{font-size:.7rem;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;font-weight:600}
+.ped .v{font-family:'Archivo';font-weight:700;font-size:1.4rem;margin-top:9px;color:var(--ink)}
+.ped p{font-size:.84rem;color:var(--muted);margin-top:5px}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--body);margin-bottom:8px;font-weight:500}
+.field input,.field textarea,.field select{width:100%;background:var(--surface);border:1px solid var(--line-2);
+  border-radius:5px;padding:12px 14px;color:var(--ink);font-family:'Sora';font-size:.95rem;transition:border-color .2s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:120px}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px 20px}
+.person .nm{font-family:'Archivo';font-weight:700;font-size:1.05rem;color:var(--ink)}
+.person .role{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-top:6px;font-weight:600}
+.person a{display:block;color:var(--body);font-size:.9rem;margin-top:11px;transition:color .2s}
+.person a:hover{color:var(--accent)}
+.cinfo .row{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.cinfo .row .ic{width:26px;height:26px;color:var(--accent);flex:none;margin-top:3px}
+.cinfo .row .lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.cinfo .row .val{font-size:1rem;color:var(--ink);margin-top:4px}
+.form-note{font-size:.8rem;color:var(--muted);margin-top:12px}
+.toast{margin-top:16px;padding:13px 16px;border:1px solid var(--accent);background:var(--accent-soft);
+  border-radius:5px;color:var(--accent-dark);font-size:.88rem;display:none}
+.toast.show{display:block}
+
+/* cta band */
+.cta-band{padding:0 clamp(20px,3.5vw,44px)}
+.cta-inner{max-width:var(--maxw);margin:0 auto;background:linear-gradient(135deg,#1d1f24,#141519);border:1px solid var(--line);border-radius:14px;padding:56px 48px;position:relative;overflow:hidden}
+.cta-inner::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;
+  background:radial-gradient(circle,rgba(217,138,62,.18),transparent 65%);pointer-events:none}
+.cta-inner>*{position:relative}
+.cta-inner .eyebrow{color:var(--accent)}
+.cta-inner h2{color:var(--ink);font-size:clamp(1.6rem,3.4vw,2.4rem);margin-top:14px;max-width:20ch}
+.cta-inner .lead{color:var(--body);margin:14px 0 28px}
+.cta-inner .btn-ghost{background:transparent;border-color:var(--line-2);color:var(--ink)}
+.cta-inner .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);background:var(--bg-alt);padding:62px 0 30px;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:36px}
+footer.site .brand{margin-bottom:16px}
+.fdesc{color:var(--muted);font-size:.9rem;max-width:36ch}
+.fcol h6{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-family:'Sora';font-weight:600}
+.fcol a{display:block;color:var(--body);font-size:.9rem;padding:5px 0;transition:color .2s}
+.fcol a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-top:46px;padding-top:24px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+
+/* reveal disabled (minimal: no animation) */
+.reveal{opacity:1;transform:none}
+
+/* metallic surfaces + subtle hover */
+.pillar,.pcard,.ind,.ped,.person{
+  background:linear-gradient(180deg,var(--surface-2),var(--surface));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 18px 40px -30px rgba(0,0,0,.85);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.pillar:hover,.ind:hover,.ped:hover,.person:hover{transform:translateY(-4px);border-color:var(--line-2)}
+.pcard:hover{transform:translateY(-4px);border-color:var(--accent)}
+
+/* responsive */
+@media(max-width:920px){
+  .hero .wrap,.verticals,.split,.contact-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1;margin-bottom:8px}
+  .rope-panel{max-width:340px}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .split{gap:36px}
+}
+@media(max-width:600px){
+  nav.main{position:fixed;inset:0 0 0 auto;width:76%;max-width:300px;background:var(--surface);
+    flex-direction:column;justify-content:center;align-items:flex-start;padding:36px;gap:6px;
+    transform:translateX(100%);transition:transform .3s;border-left:1px solid var(--line);z-index:60}
+  nav.main.open{transform:none}
+  nav.main a{font-size:1.1rem;padding:11px 0}
+  .burger{display:flex;z-index:61}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .ind-grid,.foot-grid,.people{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .cta-inner{padding:40px 28px}
+}
+</style>
+</head>
+<body data-page="products">
+<header class="site" id="hdr">
+  <a href="index.html" class="brand" aria-label="DIVI Enterprises home">
+    <svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="1" y="1" width="46" height="46" rx="3" stroke="rgba(255,255,255,.16)"/>
+      <path d="M24 6L40 24L24 42L8 24L24 6Z" stroke="#d98a3e" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M24 14L32 24L24 34L16 24L24 14Z" fill="#d98a3e" fill-opacity="0.18" stroke="#f0a85e" stroke-width="1.4"/>
+      <path d="M8 24C14 18 34 18 40 24" stroke="#8b9099" stroke-width="1.2" opacity=".7"/>
+      <path d="M8 24C14 30 34 30 40 24" stroke="#8b9099" stroke-width="1.2" opacity=".7"/>
+    </svg>
+    <span>DIVI<small>Enterprises</small></span>
+  </a>
+  <nav class="main" id="nav">
+    <a href="index.html" data-page="index">Home</a>
+    <a href="about.html" data-page="about">About</a>
+    <a href="products.html" data-page="products">Product Portfolio</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<section class="page-hero">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="crumb"><b>DIVI</b> / Product Portfolio</p>
+      <span class="eyebrow" style="margin-top:18px">Specification-Matched Supply</span>
+      <h1>Product <span class="kicker">Portfolio</span></h1>
+      <p class="lead">Two verticals, one engineering standard. Every grade, construction and tolerance is selected to match your application — backed by full technical support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VERTICAL 1 ========== -->
+<section id="diamond">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Vertical 01</span>
+      <h2>Diamond Tool &amp; <span class="kicker">Stone Processing</span></h2>
+      <p class="lead">End-to-end solutions for stone cutting, mining, processing and diamond-tool manufacturing — from the saw rope to the powders that bind the segments.</p>
+    </div>
+
+    <!-- Steel Wire Ropes (4.9mm) -->
+    <div class="prod-block reveal" id="saw-ropes">
+      <div class="prod-head"><span class="idx">01 /</span><h3>Steel Wire Ropes — 4.9mm</h3></div>
+      <p class="prod-desc">Purpose-built 4.9mm steel wire ropes for diamond wire saw rope manufacturing — engineered for the industry after years of R&amp;D and rigorous trials. Our premium HT grade is the preferred choice across the industry for its high breaking load, construction and consistency.</p>
+      <div class="spec-wrap reveal d1">
+        <table class="spec">
+          <thead><tr><th>Specification</th><th>NW HT Grade</th><th>OV HT Grade</th><th>Regular Grade</th><th>PU Coated Core</th></tr></thead>
+          <tbody>
+            <tr><th>Diameter</th><td>4.9 mm</td><td>4.85 mm</td><td>4.85 mm</td><td>4.9 mm</td></tr>
+            <tr><th>Diameter Tolerance</th><td>+/- 1%</td><td>+/- 1%</td><td>+/- 1%</td><td>+/- 1%</td></tr>
+            <tr><th>Construction</th><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td></tr>
+            <tr><th>Core</th><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC (1×19M) + PU coated core</td></tr>
+            <tr><th>Finish Of Wires</th><td>Galvanized Class B</td><td>Galvanized Class B</td><td>Galvanized Class B</td><td>Galvanized Class B</td></tr>
+            <tr><th>Tensile Strength</th><td>2160 N/mm²</td><td>1960 N/mm²</td><td>1960 N/mm²</td><td>2160 N/mm²</td></tr>
+            <tr><th>Lay Direction</th><td>RHOL</td><td>RHOL</td><td>RHOL</td><td>RHOL</td></tr>
+            <tr><th>Min. Breaking Load (MBL)</th><td>21 KN</td><td>20 KN</td><td>19 KN</td><td>19 KN</td></tr>
+            <tr><th>Weight Per Meter</th><td>0.092 kg/m</td><td>0.090 kg/m</td><td>0.090 kg/m</td><td>0.091 kg/m</td></tr>
+            <tr><th>Packing Size</th><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bright Bars -->
+    <div class="prod-block reveal" id="bright-bars">
+      <div class="prod-head"><span class="idx">02 /</span><h3>Bright Bars</h3></div>
+      <p class="prod-desc">EN1AL grade bright bars from 8.00–8.50mm, supplied to customer requirement. Used to make sleeves — the carrier body onto which diamond segments are sintered, pressed or electroplated.</p>
+      <div class="chip-row">
+        <span class="chip">EN1AL Grade</span><span class="chip">8.00 – 8.50 mm</span><span class="chip">Made-to-requirement</span><span class="chip">Sleeve carrier bodies</span>
+      </div>
+    </div>
+
+    <!-- Graphite Blocks -->
+    <div class="prod-block reveal" id="graphite">
+      <div class="prod-head"><span class="idx">03 /</span><h3>Graphite Blocks</h3></div>
+      <p class="prod-desc">High-quality graphite blocks of 1.8+ density, used for making sintering dies.</p>
+      <div class="chip-row">
+        <span class="chip">1.8+ Density</span><span class="chip">Sintering Dies</span><span class="chip">High Purity</span>
+      </div>
+    </div>
+
+    <!-- Adhesive -->
+    <div class="prod-block reveal" id="adhesive">
+      <div class="prod-head"><span class="idx">04 /</span><h3>Metal-To-Rubber Adhesive</h3></div>
+      <p class="prod-desc">Ensures a strong bond between the steel core wire, diamond beads and the outer rubber or PU coating — delivering reliable bead fixation, flexibility, and protection against abrasion and corrosion.</p>
+      <div class="chip-row">
+        <span class="chip">Bead Fixation</span><span class="chip">Flexibility</span><span class="chip">Abrasion Resistant</span><span class="chip">Corrosion Protection</span>
+      </div>
+    </div>
+
+    <!-- Metal Powders -->
+    <div class="prod-block reveal" id="powders">
+      <div class="prod-head"><span class="idx">05 /</span><h3>Metal Powders</h3></div>
+      <p class="prod-desc">A complete range of metal powders across all sizes — 325 mesh, 500 mesh and finer. Every powder is made from 100% virgin metal and carries a purity of 99%+.</p>
+      <div class="card-grid">
+        <div class="pcard reveal"><h5>Copper</h5><p>Electrolytic, atomized, nano &amp; high-density atomized.</p><span class="tag">99%+ purity</span></div>
+        <div class="pcard reveal"><h5>Bronze</h5><p>8020 · 8515 · 9010 and gold-bronze rich &amp; pale grades.</p><span class="tag">Multiple alloys</span></div>
+        <div class="pcard reveal"><h5>Brass</h5><p>7030 and standard brass powder grades.</p><span class="tag">Virgin metal</span></div>
+        <div class="pcard reveal"><h5>Tin</h5><p>Fine tin powder for sintered metal-bond matrices.</p><span class="tag">325 / 500 mesh</span></div>
+        <div class="pcard reveal"><h5>Cobalt</h5><p>High-purity cobalt powder for premium bond systems.</p><span class="tag">High purity</span></div>
+        <div class="pcard reveal"><h5>Tungsten &amp; Carbide</h5><p>Tungsten metal, fused tungsten &amp; tungsten carbide powders.</p><span class="tag">Hard phase</span></div>
+        <div class="pcard reveal"><h5>Nickel</h5><p>Nickel and carbonyl nickel powders.</p><span class="tag">Fine mesh</span></div>
+        <div class="pcard reveal"><h5>Chromium</h5><p>High-purity chromium powder.</p><span class="tag">99%+ purity</span></div>
+        <div class="pcard reveal"><h5>Zinc</h5><p>Zinc powder across fine size ranges.</p><span class="tag">Virgin metal</span></div>
+        <div class="pcard reveal"><h5>Iron</h5><p>Iron, ultra-fine iron &amp; iron CB powders.</p><span class="tag">Multiple grades</span></div>
+        <div class="pcard reveal"><h5>Lead</h5><p>Lead powder for specialised applications.</p><span class="tag">On request</span></div>
+        <div class="pcard reveal"><h5>Manganese</h5><p>Manganese powder for alloying &amp; bonds.</p><span class="tag">Fine mesh</span></div>
+        <div class="pcard reveal"><h5>Silicon Carbide</h5><p>Green &amp; black silicon carbide powders.</p><span class="tag">Abrasive grade</span></div>
+        <div class="pcard reveal"><h5>Gold Bronze</h5><p>Decorative &amp; functional gold-bronze powders.</p><span class="tag">Pale / rich</span></div>
+      </div>
+    </div>
+
+    <!-- Diamond Powder -->
+    <div class="prod-block reveal" id="diamond-powder">
+      <div class="prod-head"><span class="idx">06 /</span><h3>Diamond Powder</h3></div>
+      <p class="prod-desc">ZND diamond powder available across all working grades and sizes for diamond-tool manufacturing.</p>
+      <div class="chip-row">
+        <span class="chip">35 / 40</span><span class="chip">40 / 45</span><span class="chip">45 / 50</span><span class="chip">50 / 60</span><span class="chip">60 / 70</span><span class="chip">70 / 80</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VERTICAL 2 ========== -->
+<section class="bg-steel" id="ropes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Vertical 02</span>
+      <h2>High-Performance <span class="kicker">Steel Wire Ropes</span></h2>
+      <p class="lead">As authorised distributors of engineered wire ropes, we supply every sector that lifts, hauls, bores or hoists under load. Customised constructions, galvanised or ungalvanised, cut to length on demand.</p>
+    </div>
+
+    <!-- Applications -->
+    <div class="prod-block reveal" style="border-top:0;padding-top:0;margin-top:0">
+      <div class="prod-head"><span class="idx">A /</span><h3>Application Ranges</h3></div>
+      <p class="prod-desc">A wide variety of steel wire ropes for general lifting, boring, shipping and regulating equipment — oriented toward customised products for every client requirement.</p>
+      <div class="card-grid">
+        <div class="pcard reveal"><h5>General Engineering</h5><p>Lifting, boring, drilling, quarrying, piling &amp; sling-making rope.</p></div>
+        <div class="pcard reveal"><h5>Mining Ropes</h5><p>Hoisting &amp; haulage ropes engineered for heavy cyclic load.</p></div>
+        <div class="pcard reveal"><h5>Crane Ropes</h5><p>Crane, hoist &amp; winch ropes that resist wear during loading.</p></div>
+        <div class="pcard reveal"><h5>Lifts &amp; Elevator</h5><p>Traction ropes for vertical transport systems.</p></div>
+        <div class="pcard reveal"><h5>Oil &amp; Gas / Drilling</h5><p>Drilling lines with superior bend-fatigue &amp; abrasion resistance.</p></div>
+        <div class="pcard reveal"><h5>Construction &amp; Piling</h5><p>High rotation-resistance ropes for piling-rig kinematics.</p></div>
+        <div class="pcard reveal"><h5>Shipping &amp; Derrick</h5><p>Derrick, mooring &amp; corrosion-protected marine ropes.</p></div>
+        <div class="pcard reveal"><h5>Towing &amp; Non-Rotating</h5><p>Towing ropes &amp; rotation-resistant constructions.</p></div>
+        <div class="pcard reveal"><h5>Wire Rope Slings</h5><p>Single-leg, multi-leg &amp; endless slings with in-house terminations.</p></div>
+      </div>
+    </div>
+
+    <!-- Constructions -->
+    <div class="prod-block reveal" id="constructions">
+      <div class="prod-head"><span class="idx">B /</span><h3>Constructions &amp; Specifications</h3></div>
+      <p class="prod-desc">Popular constructions supplied in galvanised and marine-grade finishes, with FC (fibre core) or WSC (wire strand core) options.</p>
+      <div class="spec-wrap reveal d1">
+        <table class="spec">
+          <thead><tr><th>Construction</th><th>Configuration</th><th>Core Options</th><th>Typical Use</th></tr></thead>
+          <tbody>
+            <tr><th>6 × 7 (6-1)</th><td>Single-layer, high abrasion resistance</td><td>FC / WSC</td><td>Standing &amp; guy ropes</td></tr>
+            <tr><th>6 × 19 (12/6/1)</th><td>Flexible, 3–16mm range</td><td>FC / WSC (7×19)</td><td>Running over pulleys</td></tr>
+            <tr><th>6 × 36 SW (14-7+7-7-1)</th><td>Flexible, IWRC, general purpose</td><td>IWRC</td><td>Slings, cranes, hoists, winches</td></tr>
+            <tr><th>6 × 37 M (18/12/6-1)</th><td>High flexibility, multi-wire</td><td>FC / IWRC</td><td>Heavy lifting &amp; luffing</td></tr>
+            <tr><th>8 × 36</th><td>Up to 288 outer wires, best fatigue life</td><td>IWRC</td><td>High-cycle hoisting (correct sheaving)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="chip-row" style="margin-top:20px">
+        <span class="chip">Galvanised</span><span class="chip">Ungalvanised</span><span class="chip">Marine-grade Stainless</span><span class="chip">1770 / 1960 grade</span><span class="chip">PVC Coated</span><span class="chip">Cut-to-length</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cta-band">
+  <div class="cta-inner reveal">
+    <span class="eyebrow">Let's Build</span>
+    <h2 style="margin-top:18px">Your Thought Partner In Steel &amp; Stone</h2>
+    <p class="lead">From 4.9mm diamond-wire-saw ropes to mine-grade hoisting lines — get specification-matched supply backed by 40+ years of metallurgical depth.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary">Request a Quote <span class="arr">→</span></a>
+      <a href="products.html" class="btn btn-ghost">Browse Portfolio <span class="arr">→</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="1" y="1" width="46" height="46" rx="3" stroke="rgba(255,255,255,.16)"/>
+            <path d="M24 6L40 24L24 42L8 24L24 6Z" stroke="#d98a3e" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M24 14L32 24L24 34L16 24L24 14Z" fill="#d98a3e" fill-opacity="0.18" stroke="#f0a85e" stroke-width="1.4"/>
+          </svg>
+          <span>DIVI<small>Enterprises</small></span>
+        </a>
+        <p class="fdesc">Importer &amp; distributor of diamond-tool consumables and high-performance steel wire ropes for the mining, stone-processing and infrastructure industries. Authorized distributors of Asahi Ropes &amp; Bekaert Wires.</p>
+      </div>
+      <div class="fcol">
+        <h6>Verticals</h6>
+        <a href="products.html#diamond">Diamond Tool &amp; Stone</a>
+        <a href="products.html#ropes">Steel Wire Ropes</a>
+        <a href="products.html#powders">Metal Powders</a>
+        <a href="products.html#diamond-powder">Diamond Powder</a>
+      </div>
+      <div class="fcol">
+        <h6>Company</h6>
+        <a href="about.html">About Us</a>
+        <a href="about.html#why">Why DIVI</a>
+        <a href="products.html">Product Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <h6>Get In Touch</h6>
+        <a href="mailto:jitubhomawat@gmail.com">jitubhomawat@gmail.com</a>
+        <a href="tel:+919811226671">Jitendra · +91 98112 26671</a>
+        <a href="tel:+918800346162">Vidit · +91 88003 46162</a>
+        <a href="contact.html">Request a Quote</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> DIVI Enterprises. All rights reserved.</span>
+      <span>VKI Murlipura, Jaipur · Ashok Vihar, New Delhi</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // active nav
+  var page=document.body.getAttribute('data-page');
+  document.querySelectorAll('nav.main a[data-page]').forEach(function(a){
+    if(a.getAttribute('data-page')===page) a.classList.add('active');
+  });
+  // mobile menu
+  var burger=document.getElementById('burger'), nav=document.getElementById('nav');
+  if(burger){ burger.addEventListener('click',function(){ burger.classList.toggle('open'); nav.classList.toggle('open'); });
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');nav.classList.remove('open');});}); }
+  // year
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
