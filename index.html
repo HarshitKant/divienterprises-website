@@ -232,12 +232,44 @@ footer.site .brand{margin-bottom:16px}
 .pillar:hover,.ind:hover,.ped:hover,.person:hover{transform:translateY(-4px);border-color:var(--line-2)}
 .pcard:hover{transform:translateY(-4px);border-color:var(--accent)}
 
+/* ---- infographic components ---- */
+.statband{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.statband .s{background:linear-gradient(180deg,var(--surface-2),var(--surface));padding:32px 22px;text-align:center}
+.statband .s .ic{width:26px;height:26px;color:var(--accent);margin:0 auto 12px;display:block}
+.statband .s .n{font-family:'Archivo';font-weight:700;font-size:2.1rem;color:var(--ink);line-height:1}
+.statband .s .l{font-size:.78rem;color:var(--muted);margin-top:7px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+  border-radius:12px;padding:30px 28px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.step .stepnum{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--accent);color:var(--accent);font-family:'Archivo';font-weight:700;font-size:1.02rem;margin-bottom:16px}
+.step h4{font-size:1.12rem;margin-bottom:7px}
+.step p{font-size:.9rem;color:var(--body)}
+.pill-ic{width:46px;height:46px;color:var(--accent);margin-bottom:14px}
+/* product visual rows (image + content, alternating) */
+.prod-row{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px;align-items:center}
+.prod-row.rev .prod-visual{order:2}
+.prod-visual{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+  border-radius:14px;padding:34px;display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 26px 54px -36px rgba(217,138,62,.30)}
+.prod-visual svg{width:100%;max-width:300px;height:auto}
+.prod-content .prod-head{margin-top:0}
+.pcard .pic{width:34px;height:34px;color:var(--accent);margin-bottom:12px}
+/* tighter vertical rhythm on the landing page */
+body[data-page="index"] section{padding:60px 0}
+#page-home section{padding:60px 0}
+
 /* responsive */
 @media(max-width:920px){
   .hero .wrap,.verticals,.split,.contact-grid{grid-template-columns:1fr}
   .hero-visual{order:-1;margin-bottom:8px}
   .rope-panel{max-width:340px}
   .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .statband{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .prod-row{grid-template-columns:1fr;gap:26px}
+  .prod-row.rev .prod-visual{order:0}
   .foot-grid{grid-template-columns:1fr 1fr}
   .split{gap:36px}
 }
@@ -252,6 +284,7 @@ footer.site .brand{margin-bottom:16px}
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .ind-grid,.foot-grid,.people{grid-template-columns:1fr}
+  .statband{grid-template-columns:1fr}
   section{padding:60px 0}
   .cta-inner{padding:40px 28px}
 }
@@ -288,7 +321,7 @@ footer.site .brand{margin-bottom:16px}
         <span class="cu">Wire &amp; Stone</span>
         <span class="out">Solutions</span>
       </h1>
-      <p class="lead">Your trusted partner for quality wire ropes across all applications — supplying precision diamond-tool consumables and mine-grade steel wire ropes for the most demanding cutting, hoisting and material-handling work.</p>
+      <p class="lead">Your trusted partner for quality wire ropes across every application. We supply precision diamond-tool consumables and mine-grade steel wire ropes for the most demanding work.</p>
       <div class="hero-actions">
         <a href="products.html" class="btn btn-primary">Explore Portfolio <span class="arr">→</span></a>
         <a href="contact.html" class="btn btn-ghost">Talk To Us <span class="arr">→</span></a>
@@ -303,76 +336,73 @@ footer.site .brand{margin-bottom:16px}
   </div>
 </section>
 
-<!-- ================= VERTICALS ================= -->
+<!-- ================= TWO VERTICALS ================= -->
 <section>
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <span class="eyebrow">Two Verticals · One Standard</span>
-      <h2>Built Around <span class="kicker">How You Work</span></h2>
-      <p class="lead">Our business is split across two complementary verticals — each delivering end-to-end, specification-matched supply backed by hands-on technical support.</p>
+      <h2>What We <span class="kicker">Supply</span></h2>
     </div>
     <div class="verticals">
-      <div class="pillar reveal d1">
+      <div class="pillar">
+        <svg class="pill-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3h12l4 6-10 12L2 9l4-6z"/><path d="M2 9h20M12 3 8 9l4 12 4-12-4-6z"/></svg>
         <span class="num">VERTICAL 01</span>
-        <h3>Diamond Tool &amp; Stone Processing</h3>
-        <p>End-to-end consumables for stone cutting, mining, processing and diamond-tool manufacturing — from saw ropes to sintering powders.</p>
-        <ul>
-          <li>4.9mm steel wire ropes for diamond wire saw rope manufacturing</li>
-          <li>EN1AL bright bars for diamond-segment sleeves</li>
-          <li>Graphite blocks, metal-to-rubber adhesives &amp; metal powders</li>
-          <li>ZND diamond powder across all working grades</li>
-        </ul>
-        <a href="products.html#diamond" class="plink">View Diamond Tool Range <span class="arr">→</span></a>
+        <h3>Diamond Tool &amp; Stone</h3>
+        <p>End-to-end consumables for stone cutting and diamond-tool manufacturing — from saw ropes to sintering powders.</p>
+        <div class="chip-row" style="margin-top:18px">
+          <span class="chip">Steel Wire Ropes</span><span class="chip">Bright Bars</span><span class="chip">Graphite Blocks</span><span class="chip">Adhesive</span><span class="chip">Metal Powders</span><span class="chip">Diamond Powder</span>
+        </div>
+        <a href="products.html#diamond" class="plink">View Range <span class="arr">→</span></a>
       </div>
-      <div class="pillar reveal d2">
+      <div class="pillar">
+        <svg class="pill-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 3c4 3 4 5 0 8s-4 5 0 8"/><path d="M12 3c4 3 4 5 0 8s-4 5 0 8"/><path d="M19 3c4 3 4 5 0 8s-4 5 0 8"/></svg>
         <span class="num">VERTICAL 02</span>
-        <h3>High-Performance Steel Wire Ropes</h3>
-        <p>Authorised distribution of engineered wire ropes for every sector that lifts, hauls, bores or hoists under load.</p>
-        <ul>
-          <li>General engineering, mining &amp; quarrying ropes</li>
-          <li>Crane, hoist, lift &amp; elevator ropes</li>
-          <li>Construction, piling, drilling &amp; oil &amp; gas lines</li>
-          <li>Shipping, towing &amp; non-rotating constructions</li>
-        </ul>
-        <a href="products.html#ropes" class="plink">View Wire Rope Range <span class="arr">→</span></a>
+        <h3>Steel Wire Ropes</h3>
+        <p>Authorised, engineered wire ropes for every sector that lifts, hauls, bores or hoists under load.</p>
+        <div class="chip-row" style="margin-top:18px">
+          <span class="chip">Mining</span><span class="chip">Cranes &amp; Hoists</span><span class="chip">Lifts</span><span class="chip">Drilling</span><span class="chip">Construction</span><span class="chip">Slings</span>
+        </div>
+        <a href="products.html#ropes" class="plink">View Range <span class="arr">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= INDUSTRIES ================= -->
-<section class="bg-steel">
+<!-- ================= INDUSTRIES (icon infographic) ================= -->
+<section class="bg-alt">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <span class="eyebrow">Industries We Serve</span>
-      <h2>Trusted Where <span class="kicker">Margins Are Tight</span></h2>
+      <h2>Trusted Across <span class="kicker">Heavy Industry</span></h2>
     </div>
     <div class="ind-grid">
-      <div class="ind reveal d1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21l4-12 5 4 4-8 5 16"/><path d="M2 21h20"/></svg><h4>Mining</h4><p>Hoisting, haulage &amp; shaft ropes built for cyclic load.</p></div>
-      <div class="ind reveal d2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-10 4 6 3-4 5 8"/><rect x="2" y="17" width="20" height="4"/></svg><h4>Quarrying</h4><p>Diamond-wire saw systems &amp; block-cutting consumables.</p></div>
-      <div class="ind reveal d3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="12"/><path d="M9 9V4h6v5M9 21v-6h6v6"/></svg><h4>Construction</h4><p>Piling, structural &amp; site-rigging wire ropes.</p></div>
-      <div class="ind reveal d1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V7l10-4 8 4v14"/><path d="M3 11h18M9 21v-6h6v6"/></svg><h4>Cranes &amp; Hoists</h4><p>Crane, winch &amp; hoist ropes with high SWL margins.</p></div>
-      <div class="ind reveal d2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="13" height="9"/><path d="M16 11h4l1 6h-5zM6 20a2 2 0 100-4 2 2 0 000 4zM18 20a2 2 0 100-4 2 2 0 000 4z"/></svg><h4>Material Handling</h4><p>Tow, sling &amp; mooring ropes for heavy logistics.</p></div>
-      <div class="ind reveal d3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8l7-6 7 6M5 16l7 6 7-6"/></svg><h4>Infrastructure</h4><p>Bridge, derrick &amp; lifting applications at scale.</p></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21l4-12 5 4 4-8 5 16"/><path d="M2 21h20"/></svg><h4>Mining</h4></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-10 4 6 3-4 5 8"/><rect x="2" y="17" width="20" height="4"/></svg><h4>Quarrying</h4></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="12"/><path d="M9 9V4h6v5M9 21v-6h6v6"/></svg><h4>Construction</h4></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V7l10-4 8 4v14"/><path d="M3 11h18M9 21v-6h6v6"/></svg><h4>Cranes &amp; Hoists</h4></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="13" height="9"/><path d="M16 11h4l1 6h-5zM6 20a2 2 0 100-4 2 2 0 000 4zM18 20a2 2 0 100-4 2 2 0 000 4z"/></svg><h4>Material Handling</h4></div>
+      <div class="ind"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 8l7-6 7 6M5 16l7 6 7-6"/></svg><h4>Infrastructure</h4></div>
     </div>
   </div>
 </section>
 
-<!-- ================= WHY DIVI ================= -->
+<!-- ================= HOW WE WORK (process infographic) ================= -->
 <section>
   <div class="wrap">
-    <div class="split">
-      <div class="reveal">
-        <span class="eyebrow">Why DIVI</span>
-        <h2 class="sec-head" style="margin-bottom:24px;font-size:clamp(2rem,4vw,3.2rem);text-transform:uppercase">A Client-First Partner, Not Just A Supplier</h2>
-        <p class="lead" style="margin-bottom:18px">We work closely with you to optimise operations and deliver 360-degree product support — combining two generations of expertise with modern execution.</p>
-        <a href="about.html" class="btn btn-ghost">Read Our Story <span class="arr">→</span></a>
-      </div>
-      <div class="reveal d1">
-        <div class="why-card"><div class="bignum">01</div><div><h4>Thought-Partner Approach</h4><p>We help optimise your process — matching grade, construction and tolerance to your real-world application, not just filling an order.</p></div></div>
-        <div class="why-card"><div class="bignum">02</div><div><h4>40+ Years Of Depth</h4><p>Two generations of deep experience in the steel &amp; metal sector, ensuring the right metallurgy every time.</p></div></div>
-        <div class="why-card"><div class="bignum">03</div><div><h4>Modern Execution</h4><p>Strategy leadership shaped at BCG, Zomato and Noon — bringing operational rigour to industrial supply.</p></div></div>
-      </div>
+    <div class="sec-head">
+      <span class="eyebrow">How We Work</span>
+      <h2>Specification-Matched, <span class="kicker">Every Time</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="stepnum">01</div><h4>Specify</h4><p>Share your application, grade and tolerance.</p></div>
+      <div class="step"><div class="stepnum">02</div><h4>Match</h4><p>We match the exact construction and metallurgy.</p></div>
+      <div class="step"><div class="stepnum">03</div><h4>Deliver</h4><p>Specification-matched supply with 360° support.</p></div>
+    </div>
+    <div class="statband" style="margin-top:24px">
+      <div class="s"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg><div class="n">40+</div><div class="l">Years Expertise</div></div>
+      <div class="s"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg><div class="n">2</div><div class="l">Core Verticals</div></div>
+      <div class="s"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="12"/><path d="M9 9V4h6v5"/></svg><div class="n">6+</div><div class="l">Industries Served</div></div>
+      <div class="s"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c4 5 6 8 6 11a6 6 0 01-12 0c0-3 2-6 6-11z"/></svg><div class="n">99%+</div><div class="l">Powder Purity</div></div>
     </div>
   </div>
 </section>
