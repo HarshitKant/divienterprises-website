@@ -232,12 +232,44 @@ footer.site .brand{margin-bottom:16px}
 .pillar:hover,.ind:hover,.ped:hover,.person:hover{transform:translateY(-4px);border-color:var(--line-2)}
 .pcard:hover{transform:translateY(-4px);border-color:var(--accent)}
 
+/* ---- infographic components ---- */
+.statband{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.statband .s{background:linear-gradient(180deg,var(--surface-2),var(--surface));padding:32px 22px;text-align:center}
+.statband .s .ic{width:26px;height:26px;color:var(--accent);margin:0 auto 12px;display:block}
+.statband .s .n{font-family:'Archivo';font-weight:700;font-size:2.1rem;color:var(--ink);line-height:1}
+.statband .s .l{font-size:.78rem;color:var(--muted);margin-top:7px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+  border-radius:12px;padding:30px 28px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.step .stepnum{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--accent);color:var(--accent);font-family:'Archivo';font-weight:700;font-size:1.02rem;margin-bottom:16px}
+.step h4{font-size:1.12rem;margin-bottom:7px}
+.step p{font-size:.9rem;color:var(--body)}
+.pill-ic{width:46px;height:46px;color:var(--accent);margin-bottom:14px}
+/* product visual rows (image + content, alternating) */
+.prod-row{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px;align-items:center}
+.prod-row.rev .prod-visual{order:2}
+.prod-visual{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+  border-radius:14px;padding:34px;display:flex;align-items:center;justify-content:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 26px 54px -36px rgba(217,138,62,.30)}
+.prod-visual svg{width:100%;max-width:300px;height:auto}
+.prod-content .prod-head{margin-top:0}
+.pcard .pic{width:34px;height:34px;color:var(--accent);margin-bottom:12px}
+/* tighter vertical rhythm on the landing page */
+body[data-page="index"] section{padding:60px 0}
+#page-home section{padding:60px 0}
+
 /* responsive */
 @media(max-width:920px){
   .hero .wrap,.verticals,.split,.contact-grid{grid-template-columns:1fr}
   .hero-visual{order:-1;margin-bottom:8px}
   .rope-panel{max-width:340px}
   .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .statband{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .prod-row{grid-template-columns:1fr;gap:26px}
+  .prod-row.rev .prod-visual{order:0}
   .foot-grid{grid-template-columns:1fr 1fr}
   .split{gap:36px}
 }
@@ -252,6 +284,7 @@ footer.site .brand{margin-bottom:16px}
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .ind-grid,.foot-grid,.people{grid-template-columns:1fr}
+  .statband{grid-template-columns:1fr}
   section{padding:60px 0}
   .cta-inner{padding:40px 28px}
 }
@@ -280,11 +313,11 @@ footer.site .brand{margin-bottom:16px}
 </header>
 <section class="page-hero">
   <div class="wrap">
-    <div class="reveal">
+    <div>
       <p class="crumb"><b>DIVI</b> / Product Portfolio</p>
       <span class="eyebrow" style="margin-top:18px">Specification-Matched Supply</span>
       <h1>Product <span class="kicker">Portfolio</span></h1>
-      <p class="lead">Two verticals, one engineering standard. Every grade, construction and tolerance is selected to match your application — backed by full technical support.</p>
+      <p class="lead">Two verticals, one engineering standard. Every grade and construction is matched to your application.</p>
     </div>
   </div>
 </section>
@@ -292,139 +325,244 @@ footer.site .brand{margin-bottom:16px}
 <!-- ========== VERTICAL 1 ========== -->
 <section id="diamond">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <span class="eyebrow">Vertical 01</span>
       <h2>Diamond Tool &amp; <span class="kicker">Stone Processing</span></h2>
-      <p class="lead">End-to-end solutions for stone cutting, mining, processing and diamond-tool manufacturing — from the saw rope to the powders that bind the segments.</p>
     </div>
 
-    <!-- Steel Wire Ropes (4.9mm) -->
-    <div class="prod-block reveal" id="saw-ropes">
-      <div class="prod-head"><span class="idx">01 /</span><h3>Steel Wire Ropes — 4.9mm</h3></div>
-      <p class="prod-desc">Purpose-built 4.9mm steel wire ropes for diamond wire saw rope manufacturing — engineered for the industry after years of R&amp;D and rigorous trials. Our premium HT grade is the preferred choice across the industry for its high breaking load, construction and consistency.</p>
-      <div class="spec-wrap reveal d1">
+    <!-- Steel Wire Ropes -->
+    <div class="prod-block" id="saw-ropes">
+      <div class="prod-row">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="bead" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#eba968"/><stop offset="60%" stop-color="#d98a3e"/><stop offset="100%" stop-color="#a4561f"/></radialGradient></defs>
+            <path d="M5 105 Q 35 78 65 105 T 125 105 T 185 105 T 245 105 T 305 105" stroke="#8b9099" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <path d="M5 105 Q 35 132 65 105 T 125 105 T 185 105 T 245 105 T 305 105" stroke="#5d636c" stroke-width="7" fill="none" stroke-linecap="round"/>
+            <g stroke="#f0a85e" stroke-width="1"><circle cx="62" cy="105" r="21" fill="url(#bead)"/><circle cx="150" cy="105" r="21" fill="url(#bead)"/><circle cx="238" cy="105" r="21" fill="url(#bead)"/></g>
+            <line x1="45" y1="168" x2="255" y2="168" stroke="#454b54"/><line x1="45" y1="163" x2="45" y2="173" stroke="#454b54"/><line x1="255" y1="163" x2="255" y2="173" stroke="#454b54"/>
+            <text x="150" y="190" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">4.9 mm diamond wire saw rope</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">01 /</span><h3>Steel Wire Ropes — 4.9mm</h3></div>
+          <p class="prod-desc">Purpose-built ropes for diamond wire saw manufacturing, engineered through years of R&amp;D. Our premium HT grade is the industry's preferred choice for its high breaking load and consistency.</p>
+          <div class="chip-row"><span class="chip">NW HT</span><span class="chip">OV HT</span><span class="chip">Regular</span><span class="chip">PU Coated Core</span></div>
+        </div>
+      </div>
+      <div class="spec-wrap" style="margin-top:30px">
         <table class="spec">
           <thead><tr><th>Specification</th><th>NW HT Grade</th><th>OV HT Grade</th><th>Regular Grade</th><th>PU Coated Core</th></tr></thead>
           <tbody>
             <tr><th>Diameter</th><td>4.9 mm</td><td>4.85 mm</td><td>4.85 mm</td><td>4.9 mm</td></tr>
             <tr><th>Diameter Tolerance</th><td>+/- 1%</td><td>+/- 1%</td><td>+/- 1%</td><td>+/- 1%</td></tr>
             <tr><th>Construction</th><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td><td>6 × 7 + WSC</td></tr>
-            <tr><th>Core</th><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC (1×19M) + PU coated core</td></tr>
+            <tr><th>Core</th><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC (1×19M)</td><td>WSC + PU coated</td></tr>
             <tr><th>Finish Of Wires</th><td>Galvanized Class B</td><td>Galvanized Class B</td><td>Galvanized Class B</td><td>Galvanized Class B</td></tr>
             <tr><th>Tensile Strength</th><td>2160 N/mm²</td><td>1960 N/mm²</td><td>1960 N/mm²</td><td>2160 N/mm²</td></tr>
             <tr><th>Lay Direction</th><td>RHOL</td><td>RHOL</td><td>RHOL</td><td>RHOL</td></tr>
-            <tr><th>Min. Breaking Load (MBL)</th><td>21 KN</td><td>20 KN</td><td>19 KN</td><td>19 KN</td></tr>
+            <tr><th>Min. Breaking Load</th><td>21 KN</td><td>20 KN</td><td>19 KN</td><td>19 KN</td></tr>
             <tr><th>Weight Per Meter</th><td>0.092 kg/m</td><td>0.090 kg/m</td><td>0.090 kg/m</td><td>0.091 kg/m</td></tr>
-            <tr><th>Packing Size</th><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td><td>1000 m on wooden drums</td></tr>
+            <tr><th>Packing</th><td>1000 m / drum</td><td>1000 m / drum</td><td>1000 m / drum</td><td>1000 m / drum</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
     <!-- Bright Bars -->
-    <div class="prod-block reveal" id="bright-bars">
-      <div class="prod-head"><span class="idx">02 /</span><h3>Bright Bars</h3></div>
-      <p class="prod-desc">EN1AL grade bright bars from 8.00–8.50mm, supplied to customer requirement. Used to make sleeves — the carrier body onto which diamond segments are sintered, pressed or electroplated.</p>
-      <div class="chip-row">
-        <span class="chip">EN1AL Grade</span><span class="chip">8.00 – 8.50 mm</span><span class="chip">Made-to-requirement</span><span class="chip">Sleeve carrier bodies</span>
+    <div class="prod-block" id="bright-bars">
+      <div class="prod-row rev">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b3bac5"/><stop offset="50%" stop-color="#7d8794"/><stop offset="100%" stop-color="#565f69"/></linearGradient></defs>
+            <g transform="rotate(-15 150 105)">
+              <rect x="40" y="74" width="222" height="18" rx="9" fill="url(#bar)"/><ellipse cx="262" cy="83" rx="5" ry="9" fill="#cbd0d8"/>
+              <rect x="40" y="98" width="222" height="18" rx="9" fill="url(#bar)"/><ellipse cx="262" cy="107" rx="5" ry="9" fill="#cbd0d8"/>
+              <rect x="40" y="122" width="222" height="18" rx="9" fill="url(#bar)"/><ellipse cx="262" cy="131" rx="5" ry="9" fill="#cbd0d8"/>
+            </g>
+            <text x="150" y="190" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">EN1AL · 8.0–8.5 mm</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">02 /</span><h3>Bright Bars</h3></div>
+          <p class="prod-desc">EN1AL grade bright bars from 8.00–8.50mm, supplied to requirement. Used to make the sleeves onto which diamond segments are sintered, pressed or electroplated.</p>
+          <div class="chip-row"><span class="chip">EN1AL Grade</span><span class="chip">8.00–8.50 mm</span><span class="chip">Sleeve carriers</span></div>
+        </div>
       </div>
     </div>
 
     <!-- Graphite Blocks -->
-    <div class="prod-block reveal" id="graphite">
-      <div class="prod-head"><span class="idx">03 /</span><h3>Graphite Blocks</h3></div>
-      <p class="prod-desc">High-quality graphite blocks of 1.8+ density, used for making sintering dies.</p>
-      <div class="chip-row">
-        <span class="chip">1.8+ Density</span><span class="chip">Sintering Dies</span><span class="chip">High Purity</span>
+    <div class="prod-block" id="graphite">
+      <div class="prod-row">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="88,98 150,74 214,98 152,122" fill="#3a4048"/>
+            <polygon points="88,98 88,152 152,176 152,122" fill="#262a30"/>
+            <polygon points="214,98 214,152 152,176 152,122" fill="#1c2026"/>
+            <polyline points="88,98 150,74 214,98" stroke="#5a616b" stroke-width="1.5" fill="none"/>
+            <polygon points="158,72 196,58 232,72 196,86" fill="#3a4048"/>
+            <polygon points="158,72 158,98 196,112 196,86" fill="#262a30"/>
+            <polygon points="232,72 232,98 196,112 196,86" fill="#1c2026"/>
+            <text x="150" y="196" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">1.8+ density · sintering dies</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">03 /</span><h3>Graphite Blocks</h3></div>
+          <p class="prod-desc">High-quality graphite blocks of 1.8+ density, used for making sintering dies.</p>
+          <div class="chip-row"><span class="chip">1.8+ Density</span><span class="chip">Sintering Dies</span><span class="chip">High Purity</span></div>
+        </div>
       </div>
     </div>
 
     <!-- Adhesive -->
-    <div class="prod-block reveal" id="adhesive">
-      <div class="prod-head"><span class="idx">04 /</span><h3>Metal-To-Rubber Adhesive</h3></div>
-      <p class="prod-desc">Ensures a strong bond between the steel core wire, diamond beads and the outer rubber or PU coating — delivering reliable bead fixation, flexibility, and protection against abrasion and corrosion.</p>
-      <div class="chip-row">
-        <span class="chip">Bead Fixation</span><span class="chip">Flexibility</span><span class="chip">Abrasion Resistant</span><span class="chip">Corrosion Protection</span>
+    <div class="prod-block" id="adhesive">
+      <div class="prod-row rev">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="cuR" cx="40%" cy="30%" r="75%"><stop offset="0" stop-color="#eba968"/><stop offset="60%" stop-color="#d98a3e"/><stop offset="100%" stop-color="#a4561f"/></radialGradient></defs>
+            <rect x="68" y="122" width="164" height="34" rx="10" fill="#2a2e35" stroke="#454b54"/>
+            <rect x="68" y="80" width="164" height="32" rx="10" fill="#3a4048" stroke="#565c66"/>
+            <path d="M150 28 C 172 62 182 76 150 98 C 118 76 128 62 150 28 Z" fill="url(#cuR)" stroke="#f0a85e"/>
+            <text x="150" y="188" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">Bead · core · coating bond</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">04 /</span><h3>Metal-To-Rubber Adhesive</h3></div>
+          <p class="prod-desc">Bonds the steel core wire, diamond beads and outer rubber or PU coating. Delivers bead fixation, flexibility, and protection against abrasion and corrosion.</p>
+          <div class="chip-row"><span class="chip">Bead Fixation</span><span class="chip">Flexibility</span><span class="chip">Abrasion Resistant</span></div>
+        </div>
       </div>
     </div>
 
     <!-- Metal Powders -->
-    <div class="prod-block reveal" id="powders">
-      <div class="prod-head"><span class="idx">05 /</span><h3>Metal Powders</h3></div>
-      <p class="prod-desc">A complete range of metal powders across all sizes — 325 mesh, 500 mesh and finer. Every powder is made from 100% virgin metal and carries a purity of 99%+.</p>
-      <div class="card-grid">
-        <div class="pcard reveal"><h5>Copper</h5><p>Electrolytic, atomized, nano &amp; high-density atomized.</p><span class="tag">99%+ purity</span></div>
-        <div class="pcard reveal"><h5>Bronze</h5><p>8020 · 8515 · 9010 and gold-bronze rich &amp; pale grades.</p><span class="tag">Multiple alloys</span></div>
-        <div class="pcard reveal"><h5>Brass</h5><p>7030 and standard brass powder grades.</p><span class="tag">Virgin metal</span></div>
-        <div class="pcard reveal"><h5>Tin</h5><p>Fine tin powder for sintered metal-bond matrices.</p><span class="tag">325 / 500 mesh</span></div>
-        <div class="pcard reveal"><h5>Cobalt</h5><p>High-purity cobalt powder for premium bond systems.</p><span class="tag">High purity</span></div>
-        <div class="pcard reveal"><h5>Tungsten &amp; Carbide</h5><p>Tungsten metal, fused tungsten &amp; tungsten carbide powders.</p><span class="tag">Hard phase</span></div>
-        <div class="pcard reveal"><h5>Nickel</h5><p>Nickel and carbonyl nickel powders.</p><span class="tag">Fine mesh</span></div>
-        <div class="pcard reveal"><h5>Chromium</h5><p>High-purity chromium powder.</p><span class="tag">99%+ purity</span></div>
-        <div class="pcard reveal"><h5>Zinc</h5><p>Zinc powder across fine size ranges.</p><span class="tag">Virgin metal</span></div>
-        <div class="pcard reveal"><h5>Iron</h5><p>Iron, ultra-fine iron &amp; iron CB powders.</p><span class="tag">Multiple grades</span></div>
-        <div class="pcard reveal"><h5>Lead</h5><p>Lead powder for specialised applications.</p><span class="tag">On request</span></div>
-        <div class="pcard reveal"><h5>Manganese</h5><p>Manganese powder for alloying &amp; bonds.</p><span class="tag">Fine mesh</span></div>
-        <div class="pcard reveal"><h5>Silicon Carbide</h5><p>Green &amp; black silicon carbide powders.</p><span class="tag">Abrasive grade</span></div>
-        <div class="pcard reveal"><h5>Gold Bronze</h5><p>Decorative &amp; functional gold-bronze powders.</p><span class="tag">Pale / rich</span></div>
+    <div class="prod-block" id="powders">
+      <div class="prod-row">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="mound" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eba968"/><stop offset="100%" stop-color="#b06a26"/></linearGradient></defs>
+            <path d="M96 92 h108 v60 a14 14 0 0 1 -14 14 h-80 a14 14 0 0 1 -14 -14 Z" fill="#1f232a" stroke="#454b54"/>
+            <rect x="88" y="80" width="124" height="16" rx="4" fill="#3a4048"/>
+            <path d="M110 152 Q 150 110 190 152 Z" fill="url(#mound)"/>
+            <g fill="#d98a3e"><circle cx="120" cy="58" r="3"/><circle cx="150" cy="46" r="3.5"/><circle cx="180" cy="60" r="3"/><circle cx="136" cy="68" r="2.5"/><circle cx="166" cy="70" r="2.5"/></g>
+            <text x="150" y="194" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">325 / 500 mesh · 99%+ purity</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">05 /</span><h3>Metal Powders</h3></div>
+          <p class="prod-desc">A complete range across 325 mesh, 500 mesh and finer. Every powder is made from 100% virgin metal and carries 99%+ purity.</p>
+          <div class="chip-row"><span class="chip">325 mesh</span><span class="chip">500 mesh &amp; finer</span><span class="chip">100% Virgin</span><span class="chip">99%+ Purity</span></div>
+        </div>
+      </div>
+      <div class="card-grid" style="margin-top:28px">
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Copper</h5><p>Electrolytic, atomized, nano &amp; high-density.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Bronze</h5><p>8020 · 8515 · 9010 &amp; gold-bronze grades.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Brass</h5><p>7030 and standard brass grades.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Tin</h5><p>Fine tin for metal-bond matrices.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Cobalt</h5><p>High-purity cobalt for premium bonds.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Tungsten</h5><p>Metal, fused &amp; tungsten carbide.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Nickel</h5><p>Nickel &amp; carbonyl nickel powders.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Chromium</h5><p>High-purity chromium powder.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Iron</h5><p>Iron, ultra-fine &amp; iron CB.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Zinc · Tin · Lead</h5><p>Fine powders across size ranges.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Manganese</h5><p>For alloying &amp; bond systems.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20h16"/><path d="M7 20c0-4 2-7 5-7s5 3 5 7"/><circle cx="8" cy="6" r="1"/><circle cx="13" cy="4" r="1"/><circle cx="16" cy="7" r="1"/></svg><h5>Silicon Carbide</h5><p>Green &amp; black, abrasive grade.</p></div>
       </div>
     </div>
 
     <!-- Diamond Powder -->
-    <div class="prod-block reveal" id="diamond-powder">
-      <div class="prod-head"><span class="idx">06 /</span><h3>Diamond Powder</h3></div>
-      <p class="prod-desc">ZND diamond powder available across all working grades and sizes for diamond-tool manufacturing.</p>
-      <div class="chip-row">
-        <span class="chip">35 / 40</span><span class="chip">40 / 45</span><span class="chip">45 / 50</span><span class="chip">50 / 60</span><span class="chip">60 / 70</span><span class="chip">70 / 80</span>
+    <div class="prod-block" id="diamond-powder">
+      <div class="prod-row rev">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="gem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0a85e"/><stop offset="100%" stop-color="#b06a26"/></linearGradient></defs>
+            <polygon points="150,56 190,92 150,152 110,92" fill="url(#gem)" stroke="#f4b878" stroke-width="1.2"/>
+            <polyline points="110,92 150,92 190,92" stroke="#7a3f12" fill="none"/>
+            <line x1="150" y1="56" x2="150" y2="92" stroke="#7a3f12"/><line x1="110" y1="92" x2="150" y2="152" stroke="#7a3f12"/><line x1="190" y1="92" x2="150" y2="152" stroke="#7a3f12"/>
+            <g fill="#d98a3e"><polygon points="68,150 76,158 68,166 60,158"/><polygon points="228,138 236,146 228,154 220,146"/><polygon points="92,72 99,79 92,86 85,79"/></g>
+            <text x="150" y="194" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">ZND · 35/40 – 70/80</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">06 /</span><h3>Diamond Powder</h3></div>
+          <p class="prod-desc">ZND diamond powder across all working grades and sizes for diamond-tool manufacturing.</p>
+          <div class="chip-row"><span class="chip">35/40</span><span class="chip">40/45</span><span class="chip">45/50</span><span class="chip">50/60</span><span class="chip">60/70</span><span class="chip">70/80</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== VERTICAL 2 ========== -->
-<section class="bg-steel" id="ropes">
+<section class="bg-alt" id="ropes">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <span class="eyebrow">Vertical 02</span>
       <h2>High-Performance <span class="kicker">Steel Wire Ropes</span></h2>
-      <p class="lead">As authorised distributors of engineered wire ropes, we supply every sector that lifts, hauls, bores or hoists under load. Customised constructions, galvanised or ungalvanised, cut to length on demand.</p>
     </div>
 
-    <!-- Applications -->
-    <div class="prod-block reveal" style="border-top:0;padding-top:0;margin-top:0">
-      <div class="prod-head"><span class="idx">A /</span><h3>Application Ranges</h3></div>
-      <p class="prod-desc">A wide variety of steel wire ropes for general lifting, boring, shipping and regulating equipment — oriented toward customised products for every client requirement.</p>
-      <div class="card-grid">
-        <div class="pcard reveal"><h5>General Engineering</h5><p>Lifting, boring, drilling, quarrying, piling &amp; sling-making rope.</p></div>
-        <div class="pcard reveal"><h5>Mining Ropes</h5><p>Hoisting &amp; haulage ropes engineered for heavy cyclic load.</p></div>
-        <div class="pcard reveal"><h5>Crane Ropes</h5><p>Crane, hoist &amp; winch ropes that resist wear during loading.</p></div>
-        <div class="pcard reveal"><h5>Lifts &amp; Elevator</h5><p>Traction ropes for vertical transport systems.</p></div>
-        <div class="pcard reveal"><h5>Oil &amp; Gas / Drilling</h5><p>Drilling lines with superior bend-fatigue &amp; abrasion resistance.</p></div>
-        <div class="pcard reveal"><h5>Construction &amp; Piling</h5><p>High rotation-resistance ropes for piling-rig kinematics.</p></div>
-        <div class="pcard reveal"><h5>Shipping &amp; Derrick</h5><p>Derrick, mooring &amp; corrosion-protected marine ropes.</p></div>
-        <div class="pcard reveal"><h5>Towing &amp; Non-Rotating</h5><p>Towing ropes &amp; rotation-resistant constructions.</p></div>
-        <div class="pcard reveal"><h5>Wire Rope Slings</h5><p>Single-leg, multi-leg &amp; endless slings with in-house terminations.</p></div>
+    <div class="prod-block" style="border-top:0;padding-top:0;margin-top:0">
+      <div class="prod-row">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="rope" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b3bac5"/><stop offset="50%" stop-color="#7d8794"/><stop offset="100%" stop-color="#4f5862"/></linearGradient></defs>
+            <rect x="28" y="80" width="244" height="50" rx="25" fill="url(#rope)"/>
+            <g stroke="#363d46" stroke-width="3.4" stroke-linecap="round" fill="none" opacity="0.75"><path d="M58 80 l18 25 -18 25"/><path d="M98 80 l18 25 -18 25"/><path d="M138 80 l18 25 -18 25"/><path d="M178 80 l18 25 -18 25"/><path d="M218 80 l18 25 -18 25"/></g>
+            <ellipse cx="272" cy="105" rx="7" ry="25" fill="#d98a3e"/>
+            <text x="150" y="190" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">Galvanised · IWRC · cut to length</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">A /</span><h3>Application Ranges</h3></div>
+          <p class="prod-desc">Authorised, engineered ropes for general lifting, boring, shipping and regulating equipment — oriented toward customised products for every requirement.</p>
+        </div>
+      </div>
+      <div class="card-grid" style="margin-top:28px">
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><h5>General Engineering</h5><p>Lifting, boring, drilling, piling, sling-making.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21l4-12 5 4 4-8 5 16"/><path d="M2 21h20"/></svg><h5>Mining Ropes</h5><p>Hoisting &amp; haulage for heavy cyclic load.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21V7l10-4 8 4v14"/><path d="M3 11h18"/></svg><h5>Crane Ropes</h5><p>Crane, hoist &amp; winch ropes that resist wear.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 8l3-3 3 3M9 16l3 3 3-3"/></svg><h5>Lifts &amp; Elevator</h5><p>Traction ropes for vertical transport.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c4 5 6 8 6 11a6 6 0 01-12 0c0-3 2-6 6-11z"/></svg><h5>Oil &amp; Gas / Drilling</h5><p>Drilling lines with bend-fatigue resistance.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="9" width="16" height="12"/><path d="M9 9V4h6v5"/></svg><h5>Construction &amp; Piling</h5><p>High rotation-resistance for piling rigs.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v20M5 8h14M8 5l8 0"/><path d="M5 8a7 7 0 0014 0"/></svg><h5>Shipping &amp; Derrick</h5><p>Derrick, mooring &amp; marine-grade ropes.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 8a4 4 0 100 8M17 8a4 4 0 110 8M11 12h2"/></svg><h5>Towing &amp; Non-Rotating</h5><p>Towing &amp; rotation-resistant constructions.</p></div>
+        <div class="pcard"><svg class="pic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4a3 3 0 00-3 3c0 4 6 9 6 13M12 4a3 3 0 013 3"/></svg><h5>Wire Rope Slings</h5><p>Single, multi-leg &amp; endless slings.</p></div>
       </div>
     </div>
 
     <!-- Constructions -->
-    <div class="prod-block reveal" id="constructions">
-      <div class="prod-head"><span class="idx">B /</span><h3>Constructions &amp; Specifications</h3></div>
-      <p class="prod-desc">Popular constructions supplied in galvanised and marine-grade finishes, with FC (fibre core) or WSC (wire strand core) options.</p>
-      <div class="spec-wrap reveal d1">
+    <div class="prod-block" id="constructions">
+      <div class="prod-row rev">
+        <div class="prod-visual">
+          <svg viewBox="0 0 300 210" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="st" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#aeb6c2"/><stop offset="60%" stop-color="#7d8794"/><stop offset="100%" stop-color="#5d6b7c"/></radialGradient>
+              <radialGradient id="co" cx="38%" cy="34%" r="75%"><stop offset="0" stop-color="#eba968"/><stop offset="55%" stop-color="#d98a3e"/><stop offset="100%" stop-color="#b06a26"/></radialGradient>
+            </defs>
+            <circle cx="150" cy="105" r="86" fill="none" stroke="#3a4048" stroke-width="2"/>
+            <g stroke="#ffffff" stroke-opacity="0.18" stroke-width="2">
+              <circle cx="210" cy="105" r="30" fill="url(#st)"/><circle cx="180" cy="157" r="30" fill="url(#st)"/><circle cx="120" cy="157" r="30" fill="url(#st)"/>
+              <circle cx="90" cy="105" r="30" fill="url(#st)"/><circle cx="120" cy="53" r="30" fill="url(#st)"/><circle cx="180" cy="53" r="30" fill="url(#st)"/>
+            </g>
+            <circle cx="150" cy="105" r="30" fill="url(#co)" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2"/>
+            <text x="150" y="202" text-anchor="middle" fill="#7f858e" font-family="Sora" font-size="13">6-strand + core construction</text>
+          </svg>
+        </div>
+        <div class="prod-content">
+          <div class="prod-head"><span class="idx">B /</span><h3>Constructions &amp; Specifications</h3></div>
+          <p class="prod-desc">Popular constructions in galvanised and marine-grade finishes, with fibre-core or wire-strand-core options.</p>
+          <div class="chip-row"><span class="chip">Galvanised</span><span class="chip">Marine Stainless</span><span class="chip">1770 / 1960</span><span class="chip">PVC Coated</span><span class="chip">Cut-to-length</span></div>
+        </div>
+      </div>
+      <div class="spec-wrap" style="margin-top:30px">
         <table class="spec">
-          <thead><tr><th>Construction</th><th>Configuration</th><th>Core Options</th><th>Typical Use</th></tr></thead>
+          <thead><tr><th>Construction</th><th>Configuration</th><th>Core</th><th>Typical Use</th></tr></thead>
           <tbody>
-            <tr><th>6 × 7 (6-1)</th><td>Single-layer, high abrasion resistance</td><td>FC / WSC</td><td>Standing &amp; guy ropes</td></tr>
-            <tr><th>6 × 19 (12/6/1)</th><td>Flexible, 3–16mm range</td><td>FC / WSC (7×19)</td><td>Running over pulleys</td></tr>
-            <tr><th>6 × 36 SW (14-7+7-7-1)</th><td>Flexible, IWRC, general purpose</td><td>IWRC</td><td>Slings, cranes, hoists, winches</td></tr>
-            <tr><th>6 × 37 M (18/12/6-1)</th><td>High flexibility, multi-wire</td><td>FC / IWRC</td><td>Heavy lifting &amp; luffing</td></tr>
-            <tr><th>8 × 36</th><td>Up to 288 outer wires, best fatigue life</td><td>IWRC</td><td>High-cycle hoisting (correct sheaving)</td></tr>
+            <tr><th>6 × 7</th><td>Single-layer, high abrasion resistance</td><td>FC / WSC</td><td>Standing &amp; guy ropes</td></tr>
+            <tr><th>6 × 19</th><td>Flexible, 3–16mm range</td><td>FC / WSC</td><td>Running over pulleys</td></tr>
+            <tr><th>6 × 36 SW</th><td>Flexible, general purpose</td><td>IWRC</td><td>Slings, cranes, hoists</td></tr>
+            <tr><th>6 × 37 M</th><td>High flexibility, multi-wire</td><td>FC / IWRC</td><td>Heavy lifting &amp; luffing</td></tr>
+            <tr><th>8 × 36</th><td>Best fatigue life, many outer wires</td><td>IWRC</td><td>High-cycle hoisting</td></tr>
           </tbody>
         </table>
-      </div>
-      <div class="chip-row" style="margin-top:20px">
-        <span class="chip">Galvanised</span><span class="chip">Ungalvanised</span><span class="chip">Marine-grade Stainless</span><span class="chip">1770 / 1960 grade</span><span class="chip">PVC Coated</span><span class="chip">Cut-to-length</span>
       </div>
     </div>
   </div>
